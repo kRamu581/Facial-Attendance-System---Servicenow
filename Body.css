@@ -1,0 +1,123 @@
+.face-auth-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 24px;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Camera on the left, 3D card on the right */
+.top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.cam-col {
+  flex: 1 1 0;
+  max-width: 480px;
+  min-width: 0;
+}
+
+.cam-box {
+  position: relative;
+  width: 100%;
+  min-height: 240px;
+  background: #17212b;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cam-box video {
+  display: block;
+  width: 100%;
+}
+
+.cam-box canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.three-card {
+  flex: 0 0 300px;
+  padding: 12px;
+  background: #0f1724;
+  border-radius: 12px;
+  color: #cfe3ff;
+}
+
+.three-title {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.three-canvas {
+  display: block;
+  width: 100%;
+  height: 240px;
+  background: #0a111c;
+  border-radius: 8px;
+}
+
+.analysis {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #8fb4e8;
+}
+
+.face-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.face-form {
+  max-width: 360px;
+  margin: 20px auto 0;
+}
+
+.face-form input.form-control {
+  margin: 8px auto;
+}
+
+.consent {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 400;
+  text-align: left;
+}
+
+.status {
+  margin-top: 16px;
+  font-weight: 600;
+}
+
+/* Phones and small screens: stack them */
+@media (max-width: 700px) {
+  .top-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cam-col {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .three-card {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 480px;
+  }
+}
