@@ -1,0 +1,44 @@
+<div class="face-auth-container">
+  <h2>Face Attendance</h2>
+
+  <div class="top-row">
+    <div class="cam-col">
+      <div class="cam-box">
+        <video id="video" autoplay muted playsinline></video>
+        <canvas id="overlay"></canvas>
+      </div>
+
+      <div class="face-buttons">
+        <button class="btn btn-primary" ng-click="c.startCamera()">Start Camera</button>
+        <button class="btn btn-default" ng-click="c.stopCamera()">Stop Camera</button>
+      </div>
+
+      <p ng-if="c.faceDetected" class="text-success">Face detected</p>
+    </div>
+
+    <div class="three-card">
+      <div class="three-title">3D Face Analysis</div>
+      <canvas id="face-3d-canvas" class="three-canvas"></canvas>
+      <div class="analysis">{{c.analysisMessage}}</div>
+    </div>
+  </div>
+
+  <div class="face-form">
+    <input type="text" class="form-control" ng-model="c.name" placeholder="Full name (for registering)" />
+    <input type="email" class="form-control" ng-model="c.email" placeholder="Email (for registering)" />
+    <label class="consent">
+      <input type="checkbox" ng-model="c.consent" />
+      I agree to my face data being stored for attendance.
+    </label>
+  </div>
+
+  <div class="face-buttons">
+    <button class="btn btn-warning" ng-disabled="c.loading" ng-click="c.register()">Register</button>
+    <button class="btn btn-success" ng-disabled="c.loading" ng-click="c.mark('checkin')">Check In</button>
+    <button class="btn btn-danger" ng-disabled="c.loading" ng-click="c.mark('checkout')">Check Out</button>
+  </div>
+
+  <p class="status" ng-class="{'text-danger': c.errorMessage, 'text-success': c.successMessage}">
+    {{c.statusMessage}}
+  </p>
+</div>
